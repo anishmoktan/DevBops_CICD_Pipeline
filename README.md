@@ -1,6 +1,5 @@
 # DevBops CICD Pipeline
 
-
 ## How to build CI/CD Pipeline for DevBops Microserices
 
 ![Jenkins_Pipeline_Diagram](https://github.com/anishmoktan/DevBops_CICD_Pipeline/blob/main/images/DevBops_Jenkins_Chart.jpg)
@@ -13,17 +12,22 @@
 - On the **EC2 Dashboard**, click on ***Launch Instance***
 
 1. Choose *Free Tier* Amazon Linux 2 AMI 64-bit(x86) 
+
 2. Click on t2.micro *Free Tier* instance type
+
 3. Leave most of the configurations the way it is besides these below:
     - Network: ***DevBops_Production_VPC***
     - Subnet: ***DevBops-Prod-Public-1***
     - Auto-assign Public IP: ***Enable***
         - We will need a public IP address for Jenkins and to ssh
     - *We are not going to add user data so leave it black and click on **Add Storage**
+
 4. The root volume will be 8GiB so do not make any changes, click next on **Add Tag**
+
 5. Since we are all sharing this AWS account, tag this EC2 with your name as below
     - Key: ***Name***
     - Value: ***YourName_Jenkins_Public***
+
 6. Let's create a new security group specific to your settings for practice
     - Security group name: ***YourName_Jenkins_SG***
     - Security group name: ***YourName_Jenkins_SG***
