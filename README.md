@@ -30,12 +30,16 @@
 
 6. Let's create a new security group specific to your settings for practice
     - Security group name: ***YourName_Jenkins_SG***
-    - Security group name: ***YourName_Jenkins_SG***
+    - Description: ***YourName_Jenkins_SG***
+
         - ***You will need two inbound rules***
         - **Type** SSH **Protocol** TCP **Port Range** 22 **Source** My IP **Description** SSH from my computer
             > This rule allows us to ssh into the EC2's terminal
         - **Type** Custom TCP Rule **Protocol** TCP **Port Range** 8080 **Source** Custom [0.0.0.0/0,::/0] **Description** Jenkins UI on Browser
             > This rule allows anyone on the internet to access Jenkins UI on port 8080 of our IP address
-
+        - Finally, click on **Review and Launch**
+7. After reviewing the instance launch, choose the ***devbops_masterkey*** key pair 
+    - [x] I acknowledge that I have access to the private key file (devbops_masterkey.pem), and that without this file, I won't be able to log into my instance
+    - Clock on the box and then launch the instance
 
 
