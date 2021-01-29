@@ -28,18 +28,52 @@ On the **EC2 Dashboard**, click on ***Launch Instance***
     - Value: ***YourName_Jenkins_Public***
 
 6. Let's create a new security group specific to your settings for practice
-    - Security group name: ***YourName_Jenkins_SG***
+    - Security group name: ***YourName_Jenkins_SG_Public***
     - Description: ***YourName_Jenkins_SG***
 
         - ***You will need two inbound rules***
-        - **Type** SSH **Protocol** TCP **Port Range** 22 **Source** My IP **Description** SSH from my computer
+        - **Type:** SSH **Protocol:** TCP **Port Range:** 22 **Source:** My IP **Description:** SSH from my computer
             > This rule allows us to ssh into the EC2's terminal
-        - **Type** Custom TCP Rule **Protocol** TCP **Port Range** 8080 **Source** Custom [0.0.0.0/0,::/0] **Description** Jenkins UI on Browser
+        - **Type:** Custom TCP Rule **Protocol:** TCP **Port Range:** 8080 **Source:** Custom [0.0.0.0/0,::/0] **Description:** Jenkins UI on Browser
             > This rule allows anyone on the internet to access Jenkins UI on port 8080 of our IP address
         - Finally, click on **Review and Launch**
 7. After reviewing the instance launch, choose the ***devbops_masterkey*** key pair 
 - [x] I acknowledge that I have access to the private key file (devbops_masterkey.pem), and that without this file, I won't be able to log into my instance
 - Click on the box and then launch the instance
 
+## Step 2: Spin up an EC2 on the Private Subnet   
+Bevbops' backend runs in the private subnet and we will practice running all three microservice containers in one EC2. Although it will cause a single point of failure, we are going to practice running multilpe containers in different ports in one EC2. 
 
+### How to Spin up a Private EC2
+On the **EC2 Dashboard**, click on ***Launch Instance***
 
+1. Choose *Free Tier* Amazon Linux 2 AMI 64-bit(x86) 
+
+2. Click on t2.micro *Free Tier* instance type
+
+3. Leave most of the configurations the way it is besides these below:
+    - Network: ***DevBops_Production_VPC***
+    - Subnet: ***DevBops-Prod-Private-1***
+    - Auto-assign Public IP: ***Use subnet setting (Disable)***
+        - Our private EC2 will use the NAT gateway to access the internet so it will not need its unique public ip
+    - *We are not going to add user data so leave it black and click on **Add Storage**
+
+4. The root volume will be 8GiB so do not make any changes, click next on **Add Tag**
+
+5. Since we are all sharing this AWS account, tag this EC2 with your name as below
+    - Key: ***Name***
+    - Value: ***YourName_Jenkins_Private***
+
+6. Create a new security group for the private EC2
+    - Security group name: ***YourName_Jenkins_SG_Private***
+    - Description: ***YourName_Jenkins_SG_Private***
+
+        - ***You will need two inbound rules***
+        - **Type:** SSH **Protocol:** TCP **Port Range:** 22 **Source:** My IP **Description:** SSH from my computer
+            > This rule allows us to ssh into the EC2's terminal
+        - **Type:** Custom TCP Rule **Protocol:** TCP **Port Range:** 8080 **Source:** Custom [0.0.0.0/0,::/0] **Description:** Jenkins UI on Browser
+            > This rule allows anyone on the internet to access Jenkins UI on port 8080 of our IP address
+        - Finally, click on **Review and Launch**
+7. After reviewing the instance launch, choose the ***devbops_masterkey*** key pair 
+- [x] I acknowledge that I have access to the private key file (devbops_masterkey.pem), and that without this file, I won't be able to log into my instance
+- Click on the box and then launch the instance
