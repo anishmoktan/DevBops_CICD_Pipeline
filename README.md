@@ -51,7 +51,7 @@ On the **EC2 Dashboard**, click on ***Launch Instance***
 
 2. Click on t2.micro *Free Tier* instance type
 
-3. Leave most of the configurations the way it is besides these below:
+3. Again, leave most of the configurations the way it is besides these below:
     - Network: ***DevBops_Production_VPC***
     - Subnet: ***DevBops-Prod-Private-1***
     - Auto-assign Public IP: ***Use subnet setting (Disable)***
@@ -68,12 +68,13 @@ On the **EC2 Dashboard**, click on ***Launch Instance***
     - Security group name: ***YourName_Jenkins_SG_Private***
     - Description: ***YourName_Jenkins_SG_Private***
 
-        - ***You will need two inbound rules***
-        - **Type:** SSH **Protocol:** TCP **Port Range:** 22 **Source:** My IP **Description:** SSH from my computer
-            > This rule allows us to ssh into the EC2's terminal
-        - **Type:** Custom TCP Rule **Protocol:** TCP **Port Range:** 8080 **Source:** Custom [0.0.0.0/0,::/0] **Description:** Jenkins UI on Browser
-            > This rule allows anyone on the internet to access Jenkins UI on port 8080 of our IP address
+        - ***You will need three inbound rules***
+        - **Type:** SSH **Protocol:** TCP **Port Range:** 22 **Source:** 172.25.22.75/32 **Description:** SSH from jumpbox
+            > This rule allows us to first ssh into the jumpbox EC2 and then ssh into the private EC2
+        - **Type:** SSH **Protocol:** TCP **Port Range:** 22 **Source:** YourName_Jenkins_SG **Description:** SSH from Jenkins server
+            > Choose the source to the security group you just made for Jenkin's public EC2 so it has the SSH access
+            > ***If this method does not work, add the private IP address of your public EC2 as source***
         - Finally, click on **Review and Launch**
-7. After reviewing the instance launch, choose the ***devbops_masterkey*** key pair 
+7. After reviewing the instance launch, once again choose the ***devbops_masterkey*** key pair 
 - [x] I acknowledge that I have access to the private key file (devbops_masterkey.pem), and that without this file, I won't be able to log into my instance
 - Click on the box and then launch the instance
