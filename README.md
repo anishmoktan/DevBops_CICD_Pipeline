@@ -88,4 +88,7 @@ We will now ssh into our Jenkins server and install all of the packages required
     1. Install [Jenkins](https://www.youtube.com/watch?v=jmm8DsosBqw&ab_channel=AutomationStepbyStep-RaghavPal)
     2. Install [Docker](https://www.youtube.com/watch?v=d05z5ZO4vbE&t=182s&ab_channel=YBMadhuSudhanReddy)
     3. Install [Git] (https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
-    
+- Once Jenkins is set up and running, on your browser, access your the server in port 8080
+> ex. {ip_address}:8080
+> Make sure all of the recommended Jenkins plugins are installed 
+
