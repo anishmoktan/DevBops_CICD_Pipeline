@@ -73,7 +73,7 @@ On the **EC2 Dashboard**, click on ***Launch Instance***
             > This rule allows us to first ssh into the jumpbox EC2 and then ssh into the private EC2
         - **Type:** SSH **Protocol:** TCP **Port Range:** 22 **Source:** YourName_Jenkins_SG **Description:** SSH from Jenkins server
             > Choose the source to the security group you just made for Jenkin's public EC2 so it has the SSH access
-            > ***If this method does not work, add the private IP address of your public EC2 as source***
+            > ***If this method does not work, add another SSH rule with private IP address of your public EC2 as source***
         - Finally, click on **Review and Launch**
 7. After reviewing the instance launch, once again choose the ***devbops_masterkey*** key pair 
 - [x] I acknowledge that I have access to the private key file (devbops_masterkey.pem), and that without this file, I won't be able to log into my instance
