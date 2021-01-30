@@ -100,4 +100,12 @@ Let's begin with our user microservice
 2. Let's leave all of the boxes in General tab blank and move on to Build Triggers
     - Click on GitHub hook for enabling webhook 
     - [x] GitHub hook trigger for GITScm polling
+3. On your GitHub repo, go to the settings and add a Webhook
+    - Payload URL will be: **http://{Jenkins_Ip}:8080/github-webhook/**
+    - Content type: **application/json**
+    - Secret: Leave it blank
+    - Which events would you like to trigger this webhook?: **Send me everything**
+    - [x] Active
+    - Add Webhook
+
 
