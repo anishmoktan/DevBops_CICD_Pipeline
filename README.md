@@ -82,4 +82,5 @@ On the **EC2 Dashboard**, click on ***Launch Instance***
 ## Step 3: SSH into Jenkins Server and Configure
 We will now ssh into our Jenkins server and install all of the packages required to run Jenkins, use git and build Docker images 
 - On your local terminal, cd into the directory that has the devbops masterkey
-- Once you're there, ssh into it using this command:  **ssh -i "devbops_masterkey.pem" ec2-user@{Jenkins'_Public_IP_Address}**
+- Once you're there, ssh into it using this command:  
+> **ssh -i "devbops_masterkey.pem" ec2-user@{Jenkins'_Public_IP_Address}**
