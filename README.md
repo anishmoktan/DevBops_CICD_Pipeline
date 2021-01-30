@@ -92,3 +92,12 @@ We will now ssh into our Jenkins server and install all of the packages required
 > ex. {ip_address}:8080
 > Make sure all of the recommended Jenkins plugins are installed 
 
+## Step 4: Create a Pipeline on Jenkins
+Sign in to your Jenkins account and create a new pipeline by clicking on **New Item** on the left tab
+Let's begin with our user microservice
+
+1. Enter ***DevBops_User_Pipeline** for item name and then click on **Pipeline**
+2. Let's leave all of the boxes in General tab blank and move on to Build Triggers
+    - Click on GitHub hook for enabling webhook 
+    - [x] GitHub hook trigger for GITScm polling
+
