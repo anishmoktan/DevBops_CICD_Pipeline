@@ -107,6 +107,6 @@ Let's begin with our user microservice
     - Which events would you like to trigger this webhook?: **Send me everything**
     - [x] Active
     - Add Webhook
-4. 
+4. Watch this video tutorial to follow the rest of the steps [here](https://www.youtube.com/watch?v=gdbA3vR2eDs&ab_channel=JavaHomeCloud)
 
 
